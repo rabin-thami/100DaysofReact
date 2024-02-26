@@ -1,0 +1,86 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Ubuntu Mono", monospace;
+
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main {
+  width: 20em;
+  aspect-ratio: 1 / 1 ;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main h1 {
+  font-size: 5rem;
+}
+
+.counter-container {
+
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #484848;
+}
+
+.decrement {
+  position: absolute;
+  display: block;
+  width: 2.5em;
+  aspect-ratio: 1 / 1 ;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: #000;
+  color: #fff;
+  font-size: 2.5rem;
+  bottom: 0;
+
+}
+
+.increment {
+  position: absolute;
+  display: block;
+  width: 2.5em;
+  aspect-ratio: 1 / 1 ;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: #000;
+  color: #fff;
+  font-size: 2.5rem;
+  bottom: 0;
+  right: 0;
+}
+
+.Rest {
+  left: 25%;
+  position: absolute;
+  margin: 2em auto;
+  width: 50%;
+  border: none;
+  background: #000;
+  color: #fff;
+  padding: 2em 1em;
+  font-weight: bold;
+  border-radius: 5px;
+}
