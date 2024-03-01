@@ -1,7 +1,15 @@
 
 const Box = (props) => {
+    const styless =  {
+        backgroundColor : props.on ? props.color : "transparent"
+    }
     return (
-        <h1>  I am from box {props.color}</h1>
+        <button
+            style={styless}
+            on = {props.on}
+            color = {props.color}
+            onClick={props.handelClick}
+        ></button>
     )
 }
 

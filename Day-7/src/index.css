@@ -9,3 +9,18 @@ body {
   align-items: center;
   height: 100vh;
 }
+
+
+section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5em;
+}
+
+section button {
+  width: 10em;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+
+}
