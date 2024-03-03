@@ -1,0 +1,104 @@
+*{
+  font-family: "Outfit", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+/** Left Section */
+main .left-container {
+  width: 15em;
+  height: 20em;
+  background-color: blue;
+  border-radius: 5px 0 0 5px;
+  overflow: hidden;
+}
+
+
+.left-container .login-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/** Right Section */
+main .right-container {
+  width: 15em;
+  height: 20em;
+  background-color: #2c2c2c1e;
+  border-radius: 0 5px 5px 0;
+}
+
+
+.right-container form {
+  padding: 1em;
+}
+
+.login-container {
+  margin: 1em 0;
+  text-align: center;
+}
+
+input[type='text'], input[type="password"] {
+  margin: 0.2em 0;
+  padding: 0.5em 0.5em; 
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-container svg {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-icon {
+  width: 1em;
+}
+
+button {
+
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #ccc;
+  width: 50%;
+  margin: 1em auto;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: #000;
+  color: #ccc;
+}
+
+
+/* *Signup*/
+
+.right .signup-container {
+
+}
+
+.signup-container {
+  text-align: center;
+  margin: 1em  0;
+}
+
