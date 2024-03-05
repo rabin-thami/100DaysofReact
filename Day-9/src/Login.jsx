@@ -8,12 +8,17 @@ export default function Login() {
         setShowPassword(!showPassword);
     }
 
+    const formHandler = (event) => {
+        event.preventDefault()
+        console.log('You clicked submit.');
+    }
+
     return (
         <div className="login-container">
             <PiFireFill className="icon"/>
             <h1>Login</h1>
             <p>Welcome To Day 9</p>
-            <form>
+            <form onSubmit={formHandler}>
                 <label htmlFor="email">Email *</label>
                 <input 
                     type="text" 
