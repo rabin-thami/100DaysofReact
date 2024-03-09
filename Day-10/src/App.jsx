@@ -7,19 +7,27 @@ export default function App() {
 
   //for initline the user input
   const [init, setInit] = useState()
-
-
   const [form, setForm] = useState({
     userName : "",
-    category : ""
+    category : "",
+    userIp : ""
   })
 
   function handleSubmit(e) {
     e.preventDefault()
     console.log(form)
-
   }
 
+
+  useEffect(() => {
+    async function getIP() {
+      const res = await fetch("https://api.ipify.org/?format=json")
+      const data = await res.json()
+      setForm(prevData => ({...prevData, userIp: data.ip}))
+    }
+    getIP()
+
+  },[])
 
 
   return (
