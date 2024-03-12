@@ -1,10 +1,9 @@
 import { useState } from "react";
 
-export default function InitState({ form, setForm, handleSubmit, ipExists }) {
+export default function InitState({ form, setForm, handleSubmit }) {
   const [firstInit, setFirstInit] = useState(true);
   const [secondInit, setSecondInit] = useState(false);
   const [userNameError, setUserNameError] = useState(false);
-
 
   
   function handleInit(e) {
@@ -41,8 +40,9 @@ export default function InitState({ form, setForm, handleSubmit, ipExists }) {
       <h1>Welcome to Quizzical</h1>
       <p>Think you're clever? Prove it.</p>
       <form autoComplete="off" onSubmit={handleSubmit}>
-        {!ipExists ? (
-          <div className="first-init">
+
+
+      {firstInit && <div className="first-init">
           <label htmlFor="name">What should we call you?</label>
           <br />
           <input
@@ -58,9 +58,10 @@ export default function InitState({ form, setForm, handleSubmit, ipExists }) {
           <button type="button" onClick={handleInit}>
             Next
           </button>
-        </div>
-        ) : (
-          <div className="second-init">
+        </div>}
+
+
+        {secondInit && <div className="second-init">
             <label htmlFor="category">Choose a category:</label>
             <br />
             <select
@@ -97,8 +98,7 @@ export default function InitState({ form, setForm, handleSubmit, ipExists }) {
             </select>
             <br />
             <button type="submit">Next</button>
-          </div>
-        )}
+          </div>}
       </form>
     </div>
   );

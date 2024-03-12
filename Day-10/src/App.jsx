@@ -28,42 +28,52 @@ export default function App() {
 
   ///
 
-  async function pushDataInFirebase() {
-    // Push score and IP address to Firestore
-    try {
-      await addDoc(collection(db, "userData"), {
-        username : form.userName,
-        score: Number(score),
-        ip: form.userIp
-      });
-      console.log("Score and IP address saved to Firestore!");
-    } catch (error) {
-      console.error("Error adding document: ", error);
-    }
-  }
+  // async function pushDataInFirebase() {
+  //   // Push score and IP address to Firestore
+  //   try {
+  //     await addDoc(collection(db, "userData"), {
+  //       username : form.userName,
+  //       score: Number(score),
+  //       ip: form.userIp
+  //     });
+  //     console.log("Score and IP address saved to Firestore!");
+  //   } catch (error) {
+  //     console.error("Error adding document: ", error);
+  //   }
+  // }
 
-  useEffect(() => {
-    async function checkIP() {
-      const ipQuery = query(collection(db, "userData"), where("ip", "==", form.userIp));
-      const ipSnapshot = await getDocs(ipQuery);
-      if (ipSnapshot.size !== 0) {
-        setIpExists(true)
-        setInit(false);
-      }
-    }
-    checkIP();
+  // useEffect(() => {
+  //   async function checkIP() {
+  //     try {
+  //       // Fetch the IP address
+  //       const res = await fetch("https://api.ipify.org/?format=json");
+  //       const data = await res.json();
+  //       const userIp = data.ip;
   
-    async function getIP() {
-      try {
-        const res = await fetch("https://api.ipify.org/?format=json");
-        const data = await res.json();
-        setForm(prevData => ({ ...prevData, userIp: data.ip }));
-      } catch (error) {
-        console.error("Error fetching IP:", error);
-      }
-    }
-    getIP();
-  }, []);
+  //       // Update the form state with the fetched IP address
+  //       setForm(prevData => ({ ...prevData, userIp }));
+
+  
+  //       // Query Firestore to check if the fetched IP exists
+  //       const ipQuery = query(collection(db, "userData"), where("ip", "==", userIp));
+  //       const ipSnapshot = await getDocs(ipQuery);
+  
+  //       ipSnapshot.forEach((doc) => {
+  //         const userData = doc.data();
+  //         if (userData.ip === userIp) {
+  //           // If IP exists in Firestore, setIpExists and setInit accordingly
+  //           setIpExists(true);
+  //           setInit(false);
+  //         }
+  //       });
+  //     } catch (error) {
+  //       console.error("Error fetching or checking IP:", error);
+  //     }
+  //   }
+  
+  //   checkIP();
+  // }, []);
+  
   
 
 
@@ -105,9 +115,6 @@ export default function App() {
     }
   };
 
-  const totalScore = questionArr.length === 0 ? 0 : (score / questionArr.length) * 100;
-
-
   const restartQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
@@ -124,7 +131,7 @@ export default function App() {
             form={form}
             setForm={setForm}
             handleSubmit={handleSubmit}
-            ipExists={ipExists}
+            // ipExists={ipExists}
           />
         ) : (<Question
             question={quizz()[currentQuestionIndex]}
