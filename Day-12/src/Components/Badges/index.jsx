@@ -1,15 +1,11 @@
-import  "./badge.css"
+import "./badge.css"
 import classNames from "classnames"
-
-export default function Badge({children, className, size, varient,color, ...rest}) {
+export default function index({size, variant, color, ...rest}) {
   let sizeClass = size && `button-${size}`
-  let varientClass = varient && `button-${varient}`
+  let variantClass = variant && `button-${variant}`
   let colorClass = color && `button-${color}`
-  const allClass = classNames(sizeClass, varientClass, className, colorClass)
-
+  const allClassname = classNames(sizeClass, variantClass, colorClass)
   return (
-    <button className={allClass} {...rest}>
-      {children}
-    </button>
+    <button className={allClassname}{...rest}>Button</button>
   )
 }
